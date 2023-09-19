@@ -25,9 +25,6 @@ src
          ├─ 10_D3QN_PER_image_add_sensor_empty_world_30m_test.py
          ├─ 10_D3QN_PER_image_add_sensor_obstacle_world_30m.py	// 静态障碍环境训练
          ├─ 10_D3QN_PER_image_add_sensor_obstacle_world_30m_test.py
-         ├─ 12_pathplanning.py
-         ├─ 14_static_obstacle_pathplanning.py
-         ├─ 16_plot_10dynamic_obstacle_pathplanning_result.py
          ├─ D3QN_PER_image_add_sensor_dynamic_10obstacle_world_30m_test.py	//动态障碍环境训练
          ├─ Models.py
          ├─ gazebo_env_D3QN_PER_image_add_sensor_empty_world_30m.py	// 无障碍环境搭建
@@ -35,13 +32,37 @@ src
          ├─ gazebo_env_D3QN_PER_image_add_sensor_obstacle_world_30m.py	// 静态障碍环境搭建
          ├─ gazebo_env_D3QN_PER_image_add_sensor_obstacle_world_30m_test.py
          ├─ gazebo_env_dynamic_obstacle_10jackal_test.py	// 动态环境搭建
-         ├─ pathplaner.py
-         └─ saved_networks
 ```
 
-# 使用
+# Installation
 
+* 创建一个工作空间并命名为DRL_Path_Planning
 
+  `makedir DRL_Path_Planning`
+
+* git clone https://github.com/CoderWangcai/DRL_Path_Planning.git
+
+* 编译
+
+  `catkin_make`
+
+每个python文件中都会有注释对应的模型文件和环境文件，上文对python文件功能已经作了阐述。以无障碍环境的训练为例：
+打开`10_D3QN_PER_image_add_sensor_empty_world_30m.py`文件，其对应的文件如下：
+
+```python
+# 环境模型：gazebo_env_D3QN_PER_image_add_sensor_empty_world_30m.py
+# launch文件：one_jackal_image_add_sensor.launch
+# world文件：empty_sensor.world
+```
+
+下面是具体步骤：
+
+* `source devel/setup.bash`
+* `roslaunch multi_jackal_tutorials one_jackal_image_add_sensor.launch ` # 启动launch文件
+
+​		需要注意的是启动前需要将l`launch`中的`world`标签更改为对应的`world`文件
+
+* 另起一个命令行，执行`python 10_D3QN_PER_image_add_sensor_empty_world_30m.py `
 
 # Error
 
